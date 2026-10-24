@@ -6,6 +6,8 @@ Public synthetic code and toy weights only. No private traces or training data.
 
 A deterministic float32 64→128 ReLU→16 MLP (10,384 parameters), procedural toy weights in `tiny_nn.py`, fixture in `fixture.json`. This is an arithmetic/performance probe, **not a trained classifier**. The 64 ones input has exact expected output `[-7.5,-5,-2.5,0,2.5,5,7.5,10]` repeated twice. NumPy and exported ONNX execute the same graph.
 
+`tiny.onnx` is the checked ONNX copy exported and executed on the public Avrea worker (GitHub Actions job run 40127230851). SHA256: `8d66e916afee77a160222fa4649cd1b70a4127e49212e05e563c272f8fb00522` (41,779 bytes). NumPy and ONNX Runtime both matched the fixture. Regenerate using the command below; CPU one-thread settings make the tiny benchmark independent of BLAS oversubscription.
+
 ```sh
 python3 -m venv .venv
 . .venv/bin/activate
