@@ -1,0 +1,292 @@
+{
+  "version": "3.6.1",
+  "commit": "d407447ed56c4121a11ccbd266dc184ca1ead0c2",
+  "official_android_archive_url": "https://github.com/alibaba/MNN/releases/download/3.6.1/mnn_3.6.1_android_armv7_armv8_cpu_opencl_vulkan.zip",
+  "official_archive_sha256": "46dc7e86d45b8d4e957db81d2603e0b7f6c9ce9b84092ffdcee1b843cbfc9d71",
+  "source_files": [
+    {
+      "path": "include/MNN/Tensor.hpp",
+      "sha256": "6f28b4d0338c6760582ed8d5632fa0c3691bdfacc421753b6d86407466a7bf5c"
+    },
+    {
+      "path": "include/MNN/ErrorCode.hpp",
+      "sha256": "de7d2290e4e2f024ae51707298c30721a283367eb90a7abac113d27248d56dd0"
+    },
+    {
+      "path": "include/MNN/Rect.h",
+      "sha256": "cec3ec954565d2e03bb749ac9513b53dae8b2389208b490d9cfa588b2eca1ea4"
+    },
+    {
+      "path": "include/MNN/MNNForwardType.h",
+      "sha256": "b9c670a78f3ec42c81328429004fdd6c3ff1a172a52373dd09945a678e5ea167"
+    },
+    {
+      "path": "include/MNN/Interpreter.hpp",
+      "sha256": "0c367286c5906572218ddfa6426007ca748cbf5433f6cd7c7c71ae3300b1f986"
+    },
+    {
+      "path": "include/MNN/Matrix.h",
+      "sha256": "4becb851c912f987b895b08c0b10743f107430c8552a34da9bac3c447c692d1e"
+    },
+    {
+      "path": "include/MNN/AutoTime.hpp",
+      "sha256": "d5df4db8ac56a5a2634f6632401cef2a2d2aaadfd1b0b13a8c6f04f81335f004"
+    },
+    {
+      "path": "include/MNN/ImageProcess.hpp",
+      "sha256": "206f4ff03f84895ffc14d3b0cb498a8c91467b9198196bb42fc41fe707fbb4cb"
+    },
+    {
+      "path": "include/MNN/HalideRuntime.h",
+      "sha256": "f1d35170fa3fc1c7433ca1d18ca5d016ad230f26a0ecfba91b9a7ef9a49f7a37"
+    },
+    {
+      "path": "include/MNN/MNNDefine.h",
+      "sha256": "481f2ff7a4dd29ce779384b8f5169c8b1aee8ebd8f0a9ca4c2f8444de45f9b6f"
+    },
+    {
+      "path": "include/MNN/MNNSharedContext.h",
+      "sha256": "11233f00bf63d1336925ab5a563255ffb996590b064db9c20dae0a40de970978"
+    },
+    {
+      "path": "include/MNN/plugin/PluginKernel.hpp",
+      "sha256": "5100976ad3228dad2314b833d9f6b58761f24947d3912de544101ef9fd1a2135"
+    },
+    {
+      "path": "include/MNN/plugin/PluginContext.hpp",
+      "sha256": "2b5185ec107e4b0166d521f79510e7939108fddbe5e0280357ba378c94e45b29"
+    },
+    {
+      "path": "include/MNN/plugin/PluginShapeInference.hpp",
+      "sha256": "c6a5268384916da6be3015c33db20e1dbd5a2fa1ce4400a44e099879953f13c2"
+    },
+    {
+      "path": "include/MNN/expr/MathOp.hpp",
+      "sha256": "893bce404a402d02986ee6e8d7212bc7ffc804d052c6adf0b1cd1e2032491879"
+    },
+    {
+      "path": "include/MNN/expr/Module.hpp",
+      "sha256": "259f3a72d89333107acfaef97e4fc92f421afebecb7e0e868d22fc15f595c32d"
+    },
+    {
+      "path": "include/MNN/expr/NeuralNetWorkOp.hpp",
+      "sha256": "8319e2a61ce0ce0dcca93298a34f89fde69438aa8804a2d21eed05fa02e55687"
+    },
+    {
+      "path": "include/MNN/expr/Scope.hpp",
+      "sha256": "32556d33c702215c3185e373507b71a8087d29363326cb140cf273bedecdaa7c"
+    },
+    {
+      "path": "include/MNN/expr/Optimizer.hpp",
+      "sha256": "88a674fe723ca80c3d5e38979178d47eb156310772ade0fcc291dd2e38a4f03b"
+    },
+    {
+      "path": "include/MNN/expr/ExprCreator.hpp",
+      "sha256": "853120410621ffad5fa47bc50732674d009e40aa3b5205bd4426baa1b0835f17"
+    },
+    {
+      "path": "include/MNN/expr/Expr.hpp",
+      "sha256": "61731668921de87770fc703c4675995c8f92103677432c78768481fa346f072b"
+    },
+    {
+      "path": "include/MNN/expr/ExecutorScope.hpp",
+      "sha256": "a7132e5e98cf1a5db9e5e2f22fbf2d940d484a0e73b6d30b00913c13e113e2ab"
+    },
+    {
+      "path": "include/MNN/expr/Executor.hpp",
+      "sha256": "989545ffee9512229c87bd6f4fae3f617e30870018ff8d649e57f296744abd64"
+    },
+    {
+      "path": "source/core/MNNFileUtils.h",
+      "sha256": "a6fece67c07dee1a279476599f54cb68b7f1fe5b61180f8c058e971c9a747cf9"
+    },
+    {
+      "path": "source/core/Macro.h",
+      "sha256": "926700237ecf2b4181dd435db657e5a94af592e8daec7885395d2f9dc9b95f22"
+    },
+    {
+      "path": "tools/cpp/Profiler.hpp",
+      "sha256": "f7ba756b4dd791ad7d41dd71e50f6a6616f64b4400a862847300536dee607cd0"
+    },
+    {
+      "path": "tools/cpp/Profiler.cpp",
+      "sha256": "29279668a9a043975e07bc95e117d1d0a7d3d8e534fc2323fa245fb22e6f2c78"
+    },
+    {
+      "path": "transformers/llm/engine/tools/llm_bench.cpp",
+      "sha256": "db99f4481580ba8bf0e66ea3b993e5c1dba4b595463c3bf4e37ef2f82ae15300"
+    },
+    {
+      "path": "transformers/llm/engine/src/httplib.h",
+      "sha256": "4d277a2276d127691ef9c51634c18fe247e8ad56addab52109eae1c268729362"
+    },
+    {
+      "path": "transformers/llm/engine/demo/llm_demo.cpp",
+      "sha256": "3832385e884d97fc197bfdf7d975bc43d5c5aa4f29a8eba6a0dce970603b8e60"
+    },
+    {
+      "path": "transformers/llm/engine/app/mls_server.cpp",
+      "sha256": "26bef0e9fbeb8ef014b916db7a12e9355f18bfde32153cf743d35c781648786a"
+    },
+    {
+      "path": "transformers/llm/engine/app/mls_server.hpp",
+      "sha256": "9fe46c9a1c67655a79540a0c7eb93466c7baa574e3a3b8f037f86fbb9402234c"
+    },
+    {
+      "path": "transformers/llm/engine/app/jsonhpp/json.hpp",
+      "sha256": "1ee0463df5d5f272207f137cd45ed4ab640b90d53486d4994baecedd0d64604a"
+    },
+    {
+      "path": "transformers/llm/engine/include/llm/llm.hpp",
+      "sha256": "a9f1cccfe827a623f9051284c3f957d527100dad0d053174ef63fc88fbe69556"
+    },
+    {
+      "path": "3rd_party/rapidjson/writer.h",
+      "sha256": "012aee1720a98987ec479f78a1e9c31de1c4ec06a7ef29c92171c3db990cfe97"
+    },
+    {
+      "path": "3rd_party/rapidjson/schema.h",
+      "sha256": "51bdbebf18eda2195b220964bf908ac1267a09c78ce80a77585a90567764610a"
+    },
+    {
+      "path": "3rd_party/rapidjson/stream.h",
+      "sha256": "c6cead9dffa8e5972a9e6c9a52cee754411b9eda674cbab5c86a2c78146254e1"
+    },
+    {
+      "path": "3rd_party/rapidjson/pointer.h",
+      "sha256": "fc4e8923378a6c07afbdf279eb572ec97b150fd071114b2fb3d735d1fc1cb2e2"
+    },
+    {
+      "path": "3rd_party/rapidjson/document.h",
+      "sha256": "e26772ed7bdc9693469d8b6419c5eff8afaf2ff310746b526c83c92d801c0d89"
+    },
+    {
+      "path": "3rd_party/rapidjson/stringbuffer.h",
+      "sha256": "57fc25405c5a97b941c4ce2cdc9cb4ec502c4936196c368c7d78c1e5096d69e7"
+    },
+    {
+      "path": "3rd_party/rapidjson/prettywriter.h",
+      "sha256": "da98bac45ac565f1126361f57090259f1a556a27ff161a5f3bc441db8b104be8"
+    },
+    {
+      "path": "3rd_party/rapidjson/cursorstreamwrapper.h",
+      "sha256": "f37c106e59e042d4ebefe00715f33d0599a3c6f028737c91cad4d017846814ad"
+    },
+    {
+      "path": "3rd_party/rapidjson/reader.h",
+      "sha256": "9312d9cb66f4de4308d01b097e390318128734777f0f26276a1c95e2fe5114bf"
+    },
+    {
+      "path": "3rd_party/rapidjson/ostreamwrapper.h",
+      "sha256": "8ab62eb2967a965b4b39bd03ae49c220e7a6cd6c5c680f39cb32ef652b2c3337"
+    },
+    {
+      "path": "3rd_party/rapidjson/rapidjson.h",
+      "sha256": "240f786071b64c28c0a1dae3e3b05fc3ca93fa4882b1e36e56ee49fee3037b0a"
+    },
+    {
+      "path": "3rd_party/rapidjson/memorystream.h",
+      "sha256": "5381dd5981676dc6194cb384af6bcf623d9dee46b9b1508bd1e62c7cf3efac9f"
+    },
+    {
+      "path": "3rd_party/rapidjson/license.txt",
+      "sha256": "a140e5d46fe734a1c78f1a3c3ef207871dd75648be71fdda8e309b23ab8b1f32"
+    },
+    {
+      "path": "3rd_party/rapidjson/memorybuffer.h",
+      "sha256": "cbfb33d4b2b826012c9932a664044cd70606ebd938ba9e35748892de2569e03f"
+    },
+    {
+      "path": "3rd_party/rapidjson/istreamwrapper.h",
+      "sha256": "ca185d060c0d7edf8a4026bbd706de2f77869f7e642b11ca7dc3a35daa57c5fd"
+    },
+    {
+      "path": "3rd_party/rapidjson/allocators.h",
+      "sha256": "af8df398d1863a1d300e26dcc1fea813143ca11c12f13242c2eccad558f85884"
+    },
+    {
+      "path": "3rd_party/rapidjson/encodedstream.h",
+      "sha256": "ac15a6f9b872f129d019947505c212db502dcbdb9d9c8806fef8fc2afe3922a7"
+    },
+    {
+      "path": "3rd_party/rapidjson/fwd.h",
+      "sha256": "06a7b142b7b0e1d2b773e657bbafd9b861e4b0a17fadf49a806d8833ac6d557e"
+    },
+    {
+      "path": "3rd_party/rapidjson/encodings.h",
+      "sha256": "e83626ecf17f424c3979ff850ca188721e9ea96d9d5973f47302d5e5ab07f6b0"
+    },
+    {
+      "path": "3rd_party/rapidjson/filewritestream.h",
+      "sha256": "c306b379af7957a0d21bfa8f798f48e67cd78ec96fcddd79d008f1ef699dc34a"
+    },
+    {
+      "path": "3rd_party/rapidjson/filereadstream.h",
+      "sha256": "2d4b395866a0b64dc168e7eb4dbcb8a2f71f411c054cf02ae57be6418aa71e61"
+    },
+    {
+      "path": "3rd_party/rapidjson/msinttypes/stdint.h",
+      "sha256": "bf2d1bc4885bc1e0720ec9af8f399477c7e105ae1e70e2863c31a8123cae1c17"
+    },
+    {
+      "path": "3rd_party/rapidjson/msinttypes/inttypes.h",
+      "sha256": "78ee41fd99bcbe59ca93f6a870a83c0a90f4b179af571f6e684f2600491bbae7"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/regex.h",
+      "sha256": "6b52da06d96e58536e2a5364255731fba3537336c51ace628c0f6f8aaf7eeb03"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/strfunc.h",
+      "sha256": "07f1a7fbf266154f9638bc75876391e1d020bd5c891d639901150f3c53127ec2"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/strtod.h",
+      "sha256": "973a6a567707b5d706422d432681eb6d55b33fb6a58f081ea35f1f0f0610232a"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/meta.h",
+      "sha256": "52eb6de01e95e9c9e88bd70e050c985d7b37e7ac62a2320a4a06df665ecd4b9a"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/swap.h",
+      "sha256": "1403bd099a25621c63a1234ca61daae0444f1538c4be7b193694cf41a76f14ac"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/stack.h",
+      "sha256": "2ab58804815bf418898da95e4466173876038528024ae6474aca4df7739e0954"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/pow10.h",
+      "sha256": "6b8787ecc984887cc2579d7043c08ac57614b8c59e09073565538890dcd1ff21"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/itoa.h",
+      "sha256": "ab0b5d49d2671156463ba03c1cbbe32bd186d3220caec3ad2a9654ccc9955f12"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/biginteger.h",
+      "sha256": "b311ad68b7b1f971d87f10ad636994377ff7f51f0205887b8df8bb0285dcc859"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/ieee754.h",
+      "sha256": "7e4456bf81b86de2e4639cbf1a80d76f852978511e506c20d0acd79ecd31f7e1"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/diyfp.h",
+      "sha256": "b7086c604d1e24a64e7a83fb23690e34e28397e82e80f29de115a522e498d806"
+    },
+    {
+      "path": "3rd_party/rapidjson/internal/dtoa.h",
+      "sha256": "77f2a85c791347e2df5823486651b7c64182b076522a0241bbb443646270d2d8"
+    },
+    {
+      "path": "3rd_party/rapidjson/error/error.h",
+      "sha256": "85bc3e758f3463971eb85e0c4639bc22168863227dd6fc38940fc34e533bf472"
+    },
+    {
+      "path": "3rd_party/rapidjson/error/en.h",
+      "sha256": "5d040327a5b7b50367f5862fe88e9d742bcefcff52450279bfebb89a30072d2d"
+    }
+  ]
+}
