@@ -47,7 +47,7 @@ def main():
         download(url, source / entry['path'], entry['sha256'])
     with ThreadPoolExecutor(max_workers=8) as pool:
         list(pool.map(source_file, inputs['source_files']))
-    download(f"https://raw.githubusercontent.com/alibaba/MNN/{inputs['commit']}/LICENSE",
+    download(f"https://raw.githubusercontent.com/alibaba/MNN/{inputs['commit']}/LICENSE.txt",
              artifact / 'MNN-LICENSE.txt')
 
     libraries = work / 'mnn-official.zip'
