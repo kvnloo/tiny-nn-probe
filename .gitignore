@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+models/
+results/
+hardware.json
+tiny.json
