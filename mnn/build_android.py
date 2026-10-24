@@ -81,7 +81,7 @@ def main():
         common += ['-I' + str(source / directory)]
     common += ['-L' + str(artifact / 'lib'), '-Wl,-rpath,$ORIGIN/../lib', '-Wl,--allow-shlib-undefined']
     jobs = [
-        ('llm_bench', [source / 'transformers/llm/engine/tools/llm_bench.cpp', source / 'tools/cpp/Profiler.cpp']),
+        ('mnn_bench', [ROOT / 'mnn_bench.cpp']),
         ('llm_demo', [source / 'transformers/llm/engine/demo/llm_demo.cpp']),
         ('edge_mnn', [ROOT / 'edge_mnn.cpp']),
     ]

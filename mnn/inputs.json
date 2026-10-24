@@ -109,14 +109,6 @@
       "sha256": "f7ba756b4dd791ad7d41dd71e50f6a6616f64b4400a862847300536dee607cd0"
     },
     {
-      "path": "tools/cpp/Profiler.cpp",
-      "sha256": "29279668a9a043975e07bc95e117d1d0a7d3d8e534fc2323fa245fb22e6f2c78"
-    },
-    {
-      "path": "transformers/llm/engine/tools/llm_bench.cpp",
-      "sha256": "db99f4481580ba8bf0e66ea3b993e5c1dba4b595463c3bf4e37ef2f82ae15300"
-    },
-    {
       "path": "transformers/llm/engine/src/httplib.h",
       "sha256": "4d277a2276d127691ef9c51634c18fe247e8ad56addab52109eae1c268729362"
     },

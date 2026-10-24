@@ -36,13 +36,15 @@ Use the operator-selected live worker policy; this probe does not impose univers
 
 ## Native MNN comparison tools
 
-`mnn/inputs.json` pins MNN 3.6.1 source files and the official Android ARM64 CPU/OpenCL shared-library archive by hash. `mnn/build_android.py` cross-links the upstream `llm_bench` / `llm_demo` and this repository's small `edge_mnn` raw-prompt/HTTP executable. Run the build **on an admitted x86-64 Linux worker**, not on the benchmark device or an orchestration host:
+`mnn/inputs.json` pins MNN 3.6.1 source files and the official Android ARM64 CPU/OpenCL shared-library archive by hash. `mnn/build_android.py` cross-links the upstream `llm_demo` and this repository's `mnn_bench` fixed-forward benchmark and `edge_mnn` raw-prompt/HTTP executable. Run the build **on an admitted x86-64 Linux worker**, not on the benchmark device or an orchestration host:
 
 ```sh
 python3 mnn/build_android.py --out results/mnn
 ```
 
 The build downloads Android NDK r27d and verifies Google's published archive checksum. It writes `results/mnn/build-receipt.json` and `results/mnn/artifact/{bin,lib}`. Model weights are separate inputs; MNN uses its converted model/configuration format, not GGUF.
+
+`mnn_bench MODEL_CONFIG cpu|opencl` measures one 128-token prompt forward and exactly 32 teacher-forced, single-token decode forwards, starting decode from a reset context. It discards one full warmup and records three repetitions. Every forward synchronizes its output before stopping the timer; each decode step checks the real context position and KV-history length. The result includes actual forward counts and positions. No EOS sampling or requested-token denominator is used: upstream `llm_bench` can stop generation early while dividing by the requested length, so that executable is deliberately not built.
 
 `edge_mnn MODEL_CONFIG raw` reads JSON lines with raw `prompt` text and reports real engine counters. `edge_mnn MODEL_CONFIG serve PORT MODEL_ID` keeps the selected model loaded on device loopback and exposes `/health`, `/v1/models`, and `/v1/chat/completions`. The latter passes each request's `max_tokens` to the engine, accepts deterministic temperature0, and omits optional usage rather than inventing token counts. SSE responses are buffered completion chunks, not live token streaming. Engine version, loaded backend configuration and thread count are exposed in health; configuration is not proof of individual operator placement.
 
