@@ -18,11 +18,33 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python tiny_nn.py --export-onnx tiny.on
 
 The probe reports OS/CPU/RAM/disk, package versions, torch CUDA/MPS, NVIDIA/Vulkan/OpenCL discovery, two public egress requests, and resource limits. Unreadable devices or missing utilities are explicit failures, not evidence that hardware lacks a GPU. Wall-time limits remain unknown unless externally documented; RLIMIT_CPU is not a wall timeout.
 
+### Native Android arithmetic probe
+
+`native/` implements the same fixed float32 MLP and fixture in dense C for Android/Bionic, without Python, BLAS or an app install. Exactly-zero bias additions are elided. The forward pass is a separate translation unit with LTO disabled, so the compiler cannot replace the procedural weights with a precomputed answer. The executable checks finite expected outputs, then reports 20 warmups / 1,000 independent wall-clock samples, plus its actual affinity and `/proc/self/cpuset`. This is a different execution engine from NumPy; compare its numbers as such.
+
+Cross-compile **on an admitted Linux build worker** with an installed Android NDK, then run the binary natively:
+
+```sh
+ANDROID_NDK_ROOT=/path/to/android-ndk sh native/build_android.sh
+adb shell mkdir -p /data/local/tmp/tiny-nn-probe
+adb push results/native-nn/tiny-native /data/local/tmp/tiny-nn-probe/tiny-native
+adb shell chmod 755 /data/local/tmp/tiny-nn-probe/tiny-native
+adb shell taskset ff /data/local/tmp/tiny-nn-probe/tiny-native
+```
+
+The build prints compiler version and source/binary hashes. Device measurements must separately retain CPU clocks, battery and thermal state; a permitted affinity is not proof of a particular clock speed or simultaneous use of every core.
+
 ## GGUF ladder
 
 `models.json` pins every Hugging Face repository revision. Downloads record their SHA256. SmolLM2 135M Q4 → 360M Q4 → Qwen3 0.6B Q4 → Q8 → 1.7B Q4. Licenses are Apache-2.0 on the pinned upstream model cards.
 
-Supply a known llama.cpp binary directory containing `llama-bench` and `llama-server`; no compilation is silently done. Record binary version/source SHA separately. Recommended source pin: `21ec3071467b168991e223f2e5b09e571a11eb96` from ggml-org/llama.cpp, or a device's existing audited build.
+Supply a known llama.cpp binary directory containing `llama-bench` and `llama-server`. The harness does not silently compile it. Record the binary version and source SHA separately. The historical Avrea CPU run used source `21ec3071467b168991e223f2e5b09e571a11eb96`.
+
+For native Snapdragon CPU/OpenCL/HTP comparisons, use official release **b11759**, source **`522f2b6eedce1b1767e6aa81fcdb78a6f4cf82fa`**.
+
+Its `llama-b11759-bin-android-arm64-snapdragon.tar.gz` archive has SHA256 **`620a65f0e08645453da34ee106bbf9aed9118de7025c90a80be5e1cad3c13e51`**. Verify the archive before staging it. Follow the [pinned Snapdragon backend recipe](https://github.com/ggml-org/llama.cpp/blob/b11759/docs/backend/snapdragon/README.md).
+
+Run native Android ELF executables directly with `LD_LIBRARY_PATH` set. Do not pass glibc's `--library-path` option to Android's linker.
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python gguf_bench.py --bin-dir /path/to/bin --threads 4 --out results/cpu
